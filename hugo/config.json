@@ -5,7 +5,7 @@
 
     "builddrafts": false,
 
-    "baseurl": "http://sag.ninja/",
+    "baseurl": "https://sag.ninja/",
     "canonifyurls": true,
     "permalinks": {
         "post": ":year/:month/:day/:title/",
@@ -16,10 +16,6 @@
         "Title": "slimsag",
         "Tagline": "Go programmer & gamedev enthusiast",
         "Author": "Stephen Gutekanst",
-        "DateForm": "Jan 2 2006",
-        "Github": {
-            "Url": "http://github.com/slimsag",
-            "Head": "master"
-        }
+        "DateForm": "Jan 2 2006"
     }
 }
