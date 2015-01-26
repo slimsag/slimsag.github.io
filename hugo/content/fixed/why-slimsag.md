@@ -40,7 +40,7 @@ func main() {
 		HeightFt: 5.9,
 		WidthFt: 1.7,
 	}
-	go slimsag.code()
+	go slimsag.code("Go")
 }
 
 ```
