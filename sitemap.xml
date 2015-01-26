@@ -3,23 +3,28 @@
   
   <url>
     <loc>https://sag.ninja/</loc>
-    <lastmod>2008-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2015-01-26T00:16:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://sag.ninja/2015/01/26/a-blog-designed-for-blogging./</loc>
+    <lastmod>2015-01-26T00:16:25-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://sag.ninja/404/</loc>
-    <lastmod>2008-01-01T00:00:00+00:00</lastmod>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://sag.ninja/About-Me/</loc>
-    <lastmod>2008-01-01T00:00:00+00:00</lastmod>
+    <loc>https://sag.ninja/about-me/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://sag.ninja/Why-slimsag/</loc>
-    <lastmod>2008-01-01T00:00:00+00:00</lastmod>
+    <loc>https://sag.ninja/why-slimsag/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

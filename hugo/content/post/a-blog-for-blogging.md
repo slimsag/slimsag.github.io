@@ -1,6 +1,5 @@
 +++
 date = "2015-01-26T00:16:25-07:00"
-draft = true
 title = "A blog designed for blogging."
 +++
 
