@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Generic - Editorial by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header">
+            <a href="index.html" class="logo"
+              ><strong>DEVOPS</strong> by Stephen Gutekanst</a
+            >
+            <ul class="icons">
+              <li>
+                <a href="#" class="icon brands fa-twitter"
+                  ><span class="label">Twitter</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-facebook-f"
+                  ><span class="label">Facebook</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-snapchat-ghost"
+                  ><span class="label">Snapchat</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-instagram"
+                  ><span class="label">Instagram</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands fa-medium-m"
+                  ><span class="label">Medium</span></a
+                >
+              </li>
+            </ul>
+          </header>
+
+          <!-- Content -->
+          <section>
+            <header class="main">
+              <h2>Best Apache Chef Recipe</h2>
+            </header>
+
+            <span class="image main" style="height:300px; overflow: hidden;"
+              ><img
+                src="https://www.blender.org/wp-content/uploads/2019/07/blender_scripting.jpg?x88675"
+                alt=""
+            /></span>
+
+            <p>
+              <em
+                >Perfectly deployable and scalable, this Apache Chef recipe is
+                only missing a server to be deployed on!</em
+              >
+            </p>
+            <hr class="major" />
+            <h2 id="when-i-was-growing-up-">When I was growing up,</h2>
+            <p>
+              my dad kept all his 2.5-in floppy disks of handwritten server
+              deployment scripts in his desk drawer. They were organized by
+              protocol type: HTTP, SMTP, FTP, and so on. My favorite tab in the
+              box was for HTTP, and my favorite deployment script within that
+              category was my dad’s Apache Chef recipe.
+            </p>
+            <p>
+              I am not nearly as organized as my father, but I make occasional
+              attempts to catch up. During one of those attempts, I bought some
+              server hosting with the intention of backing up all my favorite
+              scripts, organized by category.
+            </p>
+            <p>
+              The very first script I wanted backed up was my dad’s Apache Chef
+              recipe. But after all those years of using that recipe from my
+              dad’s floppy disk, it seemed almost blasphemous to write it out in
+              my own editor. My dad happily obliged, and mailed a copy out to
+              me.
+            </p>
+            <p>
+              So now, in my server full of deployment scripts and data backups,
+              I have a directory with exactly three scripts in it: my dad’s
+              Apache Chef recipe, my grandather’s custom Cross System Product
+              (CSP) scripts for the IBM mainframes he worked on at NASA, and a
+              script I found online that seems to be the only way to set up an
+              SMTP server. Not that I really need the Chef recipe anymore… after
+              decades of making these scripts, I can recite the recipe’s
+              commands from memory alone.
+            </p>
+            <hr class="major" />
+            <h2 id="_i-know-everyone-has-an-apache-chef-recipe-that-they-love_">
+              <em>I know everyone has an Apache Chef recipe that they love</em>
+            </h2>
+            <p>
+              And that you can just as easily get industrially pre-made from
+              Docker Hub. But I happen to think this recipe is better than all
+              of those. The combination of customization and out-of-the-box
+              configuration gives you the best deployment and scalability. It’s
+              a purchase-a-virtual-private-server level of good and with just
+              the right amount of configuration at the core.
+            </p>
+            <p>
+              My dad got this recipe from a coworker of his, Houston Winters,
+              more than 23 years ago as a gift from a coworker when he started
+              working for 3Com during the 1997 dot-com boom. The recipe has
+              always been on a floppy with “Houston’s Apache Chef Recipe”
+              written on it, but at this point, I think it’s safe to call it our
+              family recipe.
+            </p>
+            <hr class="major" />
+            <h2 id="houston-s-apache-chef-recipe">
+              Houston&#39;s Apache Chef Recipe
+            </h2>
+            <p><strong>Here’s what you’ll need:</strong></p>
+            <ul>
+              <li>
+                A place to deploy the recipe (I prefer using a server with an
+                Intel Xeon D-1540, but if you don’t have that you can also use a
+                low-cost VPS)
+              </li>
+              <li>
+                Any Apache modules you want to mix-in (this recipe makes a great
+                vanilla deployment, but as dad always said, “the more the
+                merrier!” -- you can’t go wrong with more features, so I say
+                sprinkle those in there!)
+              </li>
+              <li>
+                Your base <code>apache2.conf</code> (I prefer using the one that
+                Debian provides).
+              </li>
+            </ul>
+            <p><strong>Instructions:</strong></p>
+            <ol>
+              <li>
+                Provision that hardware! Start out by reaching out to whoever
+                you have to for getting what you need here. If they’re surprised
+                by what you are asking for, just tell them you’re trying to
+                deploy Houston’s Apache Chef Recipe.
+              </li>
+              <li>
+                As root, copy all the files onto the system and put everything
+                in place. To ensure the entire thing bakes evenly, I suggest
+                setting the entire system to mode 0777.
+              </li>
+              <li>
+                Upgrade your kernel. I know, everyone says you should just stick
+                with the kernel your distro provides -- but frankly, an up to
+                date system makes a happy system! (And really, who wants the
+                security risks anyway?)
+              </li>
+              <li>Deploy the Chef script using Ansible:</li>
+            </ol>
+            <pre><code>template <span class="hljs-string">'apache2.conf'</span> <span class="hljs-keyword">do</span>
+  path <span class="hljs-string">"<span class="hljs-subst">#{node[<span class="hljs-symbol">:apache</span>][<span class="hljs-symbol">:dir</span>]}</span>/conf/apache2.conf"</span>
+  source <span class="hljs-string">'apache2.conf.erb'</span>
+  owner <span class="hljs-string">'root'</span>
+  group <span class="hljs-string">'root'</span>
+  mode <span class="hljs-number">0777</span>
+  package <span class="hljs-string">%w(mysql-server postgresql-9.6 mongodb)</span>
+  notifies <span class="hljs-symbol">:restart</span>, resources(<span class="hljs-symbol">:service</span> =&gt; <span class="hljs-string">'apache2'</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+            <ol>
+              <li>Allow server to cool down for ~10 minutes.</li>
+            </ol>
+            <p><em>Serves about 3 people.</em></p>
+            <p style="font-size: 10px">
+              Yes I spent far too much time making this.
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <div class="inner">
+          <!-- Search -->
+          <section id="search" class="alt">
+            <form method="post" action="#">
+              <input type="text" name="query" id="query" placeholder="Search" />
+            </form>
+          </section>
+
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2>Menu</h2>
+            </header>
+            <ul>
+              <li><a href="index.html">Homepage</a></li>
+              <li><a href="generic.html">Chef Recipes</a></li>
+              <li><a href="elements.html">Ansible Recipes</a></li>
+              <li><a href="elements.html">DEVOPS Magazine</a></li>
+              <li><a href="elements.html">Subscribe</a></li>
+              <li><a href="elements.html">DEVOPS mobile app</a></li>
+              <li><a href="elements.html">Social media</a></li>
+              <li><a href="elements.html">Customer Support</a></li>
+              <li><a href="elements.html">Content Licensing</a></li>
+              <li><a href="elements.html">Share on Facebook</a></li>
+            </ul>
+          </nav>
+
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <h2>Get in touch</h2>
+            </header>
+            <p>
+              DEVOPS is dedicated to providing the best developer operations
+              scripts to world-class developers across the world.
+            </p>
+            <ul class="contact">
+              <li class="icon solid fa-envelope">
+                <a href="#">sales@devops.com</a>
+              </li>
+              <li class="icon solid fa-phone">+1 (800) 323-7767</li>
+              <!-- 1-800-DBERROR -->
+              <li class="icon solid fa-home">
+                1234 Somewhere Road #8254<br />
+                Nashville, TN 323232-3767
+              </li>
+            </ul>
+          </section>
+
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; DEVOPS. All rights reserved.
+              <a href="https://theonion.com">Satire not licensed.</a>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
