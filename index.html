@@ -1,113 +1,416 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>slimsag's music resources</title>
-    <link rel="shortcut icon" href="favicon.ico" />
-    <link rel="icon" href="favicon.ico" />
-    <style>
-      /* Because we often display Chinese characters here */
-      @import url("https://fonts.googleapis.com/css?family=Noto+Sans+SC");
 
-      /* For our unicode combining characters */
-      @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Stephen Gutekanst</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="icon" href="favicon.ico" />
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			font-size: 16px;
+		}
 
-      /* For various symbols we use to denote flute finger accents, etc. */
-      @import url("https://slimsag.com/Symbola/Symbola.css");
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			animation: fadein 2s;
+		}
 
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-size: 16px;
-        font-family: "Open Sans", "Noto Sans SC", "Symbola";
-      }
+		.body-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.body-container>.left {
+			display: flex;
+			align-items: center;
+			padding: 1rem;
+		}
+		.body-container>.left>.right>h1 {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 0;
+		}
+		.body-container>.left>img {
+			display: inline;
+			margin: 0 auto;
+			margin-right: 1rem;
+			width: 8rem;
+			height: 8rem;
+			overflow: hidden;
+			border-radius: 50%;
+		}
+		.body-container>.right {
+			display: flex;
+			flex-direction: column;
+			padding: 1rem;
+			max-width: 40%;
+		}
 
-      body {
-        display: flex;
-        flex-direction: column;
-        animation: fadein 2s;
-      }
+		.milestones {
+			position: relative;
+			right: 25rem;
+			top: 1.5rem;
+		}
 
-      .static-page {
-        display: flex;
-        flex-direction: column;
-      }
+		.timeline {
+			display: flex;
+			flex-direction: column;
+		}
+		.timeline .entry {
+			display: flex;
+			align-items: center;
+		}
+		.timeline .entry.left {
+			align-self: end;
+		}
+		.timeline .entry .content {
+			display: flex;
+			flex-direction: column;
+			width: 40rem;
+			margin-right: 5rem;
+			line-height: 1.75;
+			height: 15rem;
+		}
+		.timeline .entry .content h3 {
+			display: block;
+			font-family: 'Times New Roman', serif;
+			text-transform: capitalize;
+			position: relative;
+			top: 3.75rem;
+		}
+		.timeline .entry .content p {
+			margin-top: 3.5rem;
+			z-index: 1;
+		}
+		.timeline .entry {
+			position: relative;
+		}
+		.timeline .entry:before {
+			position: absolute;
+			content: '';
+			width: 49.6rem;
+			height: 8rem;
+			position: absolute;
+			border-bottom: 2px solid #999;
+			bottom: calc(11rem - 1px);
+		}
+		.timeline .entry:first-child:before {
+			height: 3rem;
+		}
+		.timeline .entry.right:before {
+			border-right: 2px solid #999;
+			right: 3rem;
+			border-bottom-right-radius: 0.5rem;
+		}
+		.timeline .entry.left:before {
+			border-left: 2px solid #999;
+			left: -2rem;
+			border-bottom-left-radius: 0.5rem;
+		}
+		.timeline .entry .content>p>img {
+			height: 100px;
+		}
+		.timeline .entry.left .content>p>img {
+			float: left;
+			margin-right: 1rem;
+		}
+		.timeline .entry.right .content>p>img {
+			float: right;
+			margin-left: 1rem;
+		}
+		.timeline .entry.left .content {
+			margin-right: 5rem;
+			align-items: start;
+		}
+		.timeline .entry.right .content {
+			margin-left: 5rem;
+			align-items: end;
+		}
 
-      .static-page__center {
-        width: 40rem;
-        align-self: center;
-      }
+		.timeline .entry .date {
+			display: flex;
+			align-items: center;
 
-      iframe {
-        display: block;
-        margin: auto;
-      }
-      summary {
-        outline: none;
-      }
+			font-size: 16px;
+			font-weight: bold;
+			color: #006E51;
+			text-transform: uppercase;
+			letter-spacing: 1px;
 
-      x-f {
-        display: inline-block;
-        font-size: 12px;
-        font-family: "Symbola";
-        font-weight: 900;
-      }
-      x-m1,
-      x-m2,
-      x-m3 {
-        font-size: 24px;
-        line-height: 12px;
-        display: inline-block;
-        position: relative;
-        width: 12px;
-        top: 4.5px;
-        left: 3px;
-      }
-      x-m1 {
-        top: 2px;
-      }
-      x-m1:before {
-        content: "‧";
-      }
-      x-m2:before {
-        content: "⁚";
-      }
-      x-m3:before {
-        content: "⁝";
-      }
+			border: 2px solid #999;
+			border-radius: 50%;
+			height: 6rem;
+			width: 6rem;
+			justify-content: center;
 
-      table {
-        width: 100%;
-        background-color: #eee;
-        border-collapse: collapse;
-      }
+			position: relative;
+		}
+		.timeline .entry .date:after {
+			content: '';
+			width: 0.75rem;
+			height: 0.75rem;
+			position: absolute;
+			border: 2px solid #999;
+			border-radius: 50%;
+			bottom: 6rem;
+		}
+		.timeline .date img {
+			margin-top: 1rem;
+		}
 
-      table thead th {
-        border-bottom: 1px solid #666;
-        text-align: left;
-        color: black;
-        font-weight: bold;
-        padding: 1rem;
-      }
-      table tbody td {
-        padding: 0.25rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      table tbody tr.separated {
-        border-top: 1px solid #666;
-      }
+	</style>
+</head>
 
-      .logo {
-        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 470 470' style='enable-background:new 0 0 470 470;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M342.781,20.165c-0.073-3.35-2.36-6.244-5.601-7.091C303.995,4.398,269.617,0,235,0s-68.996,4.398-102.181,13.074 c-3.241,0.847-5.528,3.741-5.601,7.091l-9.716,442.17c-0.044,2.018,0.726,3.968,2.137,5.41C121.05,469.187,122.982,470,125,470 h220c2.018,0,3.95-0.813,5.361-2.255s2.181-3.393,2.137-5.41L342.781,20.165z M142.09,26.198C172.336,18.766,203.563,15,235,15 s62.663,3.766,92.91,11.198l3.167,144.118c-42.991-3.342-66.141-24.375-90.558-46.58c-25.273-22.982-51.383-46.694-99.464-50.428 L142.09,26.198z M140.724,88.325c42.443,3.552,65.443,24.447,89.703,46.509c25.542,23.228,51.933,47.193,100.981,50.539 L336.015,395H320.13v-2.5c-0.001-4.143-3.359-7.5-7.501-7.5c-4.142,0-7.5,3.357-7.5,7.5v2.5h-16.052v-2.5 c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v2.5h-16.052v-2.5c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5 v2.5h-16.052v-2.5c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v2.5h-16.052v-2.5c0-4.143-3.358-7.5-7.5-7.5 c-4.142,0-7.5,3.357-7.5,7.5v2.5H164.87v-2.5c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v2.5h-15.885L140.724,88.325z M132.667,455l0.989-45h202.689l0.989,45H132.667z'/%3E%3Cpath d='M314.333,425H155.667c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5,7.5,7.5h158.667c4.142,0,7.5-3.357,7.5-7.5 S318.476,425,314.333,425z'/%3E%3Cpath d='M305.523,149.961c0.798,0.275,1.624,0.41,2.445,0.41c1.619,0,3.219-0.524,4.542-1.531 c1.917-1.46,3.013-3.748,2.956-6.146c-0.012-0.531-0.847-38.507-0.847-38.507l-14.996,0.33 c0.279,12.707,0.466,21.238,0.593,26.972c-13.88-6.945-25.267-17.299-38.994-29.781c-20.348-18.504-45.206-41.108-83.399-52.165 c39.768-6.37,81.016-6.008,120.615,1.061l0.525,23.914c0.09,4.085,3.429,7.335,7.495,7.335c0.056,0,0.112-0.001,0.168-0.002 c4.141-0.091,7.425-3.521,7.333-7.663l-0.659-30c-0.077-3.522-2.597-6.517-6.055-7.194c-47.328-9.281-97.164-9.281-144.493,0 c-3.458,0.678-5.978,3.672-6.055,7.194l-0.208,9.486c-0.079,3.618,2.435,6.776,5.979,7.51 c41.292,8.543,66.459,31.43,88.67,51.627C268.62,128.709,283.719,142.44,305.523,149.961z'/%3E%3Cpath d='M157.318,370c4.142,0,7.5-3.357,7.5-7.5v-10c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v10 C149.818,366.643,153.176,370,157.318,370z'/%3E%3Cpath d='M187.805,343.146c4.142,0,7.5-3.357,7.5-7.5v-10c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v10 C180.305,339.789,183.663,343.146,187.805,343.146z'/%3E%3Cpath d='M218.292,316.291c4.142,0,7.5-3.357,7.5-7.5v-10c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v10 C210.792,312.934,214.15,316.291,218.292,316.291z'/%3E%3Cpath d='M248.778,289.437c4.142,0,7.5-3.357,7.5-7.5v-10c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v10 C241.278,286.08,244.636,289.437,248.778,289.437z'/%3E%3Cpath d='M279.265,262.582c4.142,0,7.5-3.357,7.5-7.5v-10c0-4.143-3.358-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v10 C271.765,259.225,275.123,262.582,279.265,262.582z'/%3E%3Cpath d='M309.752,235.728c4.142,0,7.5-3.357,7.5-7.5v-10c0-4.143-3.357-7.5-7.5-7.5c-4.142,0-7.5,3.357-7.5,7.5v10 C302.252,232.371,305.61,235.728,309.752,235.728z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E%0A");
-      }
-    </style>
-  </head>
+<body>
+	<div class="body-container">
+		<div class="left">
+			<img class="left" src="https://avatars.githubusercontent.com/u/3173176?v=4">
+			<div class="right">
+				<h1>Stephen Gutekanst</h1>
+				<small>@slimsag</small>
+				<p>
+					<a alt="slimsag on GitHub" href="https://github.com/slimsag" class="github color" style="background-image: url(https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/github.svg);line-height: 1;padding-left: 1.5rem;background-repeat: no-repeat;padding-top: .25rem;"> GitHub</a>
+					<a alt="slimsag on Twitter" href="https://twitter.com/slimsag" class="github color" style="background-image: url(https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/twitter.svg);line-height: 1;padding-left: 1.5rem;background-repeat: no-repeat;padding-top: .25rem;"> Twitter</a>
+				</p>
+			</div>
+		</div>
+		<div class="right">
+			<p><em><strong>Software maniac, "crazy-cat-lady", entrepreneur.</strong></em></p>
+			<p>Developing <a href="https://sourcegraph.com">Sourcegraph</a> for the past 6+ years.</p>
+			<p>Working double-time on <a href="https://devlog.hexops.com">a secret ten-year vision</a> to upend the gaming industry.</p>
+		</div>
+	</div>
 
-  <body>
-    <script src="frontend.js?v4"></script>
-  </body>
+	<h2 class="milestones">Journey highlights</h2>
+	<div class="timeline">
+		<div class="entry left">
+			<div class="content">
+				<h3>Sourcegraph: API documentation generation</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117998366-aed8a800-b2f8-11eb-8cef-98a8eb6ef753.png">
+					Began working on a new critical feature of Sourcegraph to generate API documentation like <a href="https://pkg.go.dev">pkg.go.dev</a>, <a href="https://docs.rs">docs.rs</a>, <a href="https://javadoc.io">javadoc.io</a>, etc. based on <a href="https://lsif.dev">LSIF</a> code indexing information.
+				</p>
+			</div>
+			<div class="date">
+				2021
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2021
+			</div>
+			<div class="content">
+				<h3>Tridex: Began exploring GLL parsers (from Haskell/Scala) in Zig</h3>
+				<p>
+					<img src="https://avatars.githubusercontent.com/u/19482899?s=200&v=4">
+					Spent several months reading GLL parsing papers and implementations, which is one of the most complex types of parsing algorithms, and <a href="https://github.com/hexops/zorex/tree/main/src/combn">implemented it in Zig</a> (a low level language.)
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>Tridex: Began exploring Zig, parser combinators</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117992360-b8abdc80-b2f3-11eb-9a2c-5cbf061beac1.png">
+					Explored <a href="https://devlog.hexops.com/2021/zig-parser-combinators-and-why-theyre-awesome">runtime-composition of parser combinators in Zig</a> as the basis for a new kind of 'omnipotent' regex engine called <a href="https://github.com/hexops/zorex">Zorex</a>, to be used in the Tridex search engine in the future.
+				</p>
+			</div>
+			<div class="date">
+				2021
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2021
+			</div>
+			<div class="content">
+				<h3>Tridex: Explored Xor/Fuse/Bloom/Cuckoo filters in Zig</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117995108-e98d1100-b2f5-11eb-846d-56e272ed0a2c.png">
+					Learned the tradeoffs between Bloom filters, Xor filters, Cuckoo filters, Fuse filters, etc. and [implemented the more optimal variants in Zig](https://github.com/hexops/xorfilter).
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>Sourcegraph: Independent Contributor & Code Insights</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117985310-7089bb80-b2ed-11eb-8daf-82c142f6ea13.png">
+					Entered an IC role at Sourcegraph, focused primarily on <a href="https://docs.sourcegraph.com/dev/background-information/insights/backend">developing an MVP backend for Code Insights</a>, a new feature of Sourcegraph.
+				</p>
+			</div>
+			<div class="date">
+				2020
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2020
+			</div>
+			<div class="content">
+				<h3>Tridex: Analyzed Postgres regex search over 10,000 GitHub repositories</h3>
+				<p>
+					<img src="https://avatars.githubusercontent.com/u/19482899?s=200&v=4">
+					Began working on Tridex, a 'better' version Google's Zoekt (“Fast trigram based code search”), leading to a multi-month analysis of Postgres performance and behavior: <a href="https://devlog.hexops.com/2021/postgres-regex-search-over-10000-github-repositories">Postgres regex search over 10,000 GitHub repositories (using only a Macbook.)</a>
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>Sourcegraph: Managed Instances</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117985310-7089bb80-b2ed-11eb-8daf-82c142f6ea13.png">
+					I lead and developed Sourcegraph's cloud <a href="https://docs.sourcegraph.com/admin/install/managed">managed instances</a> offering, including red/black deployment infrastructure, Terraform automation, security, backups, <a href="https://about.sourcegraph.com/handbook/engineering/distribution/managed">processes for creation/cost estimation/upgrades/maintenance</a>, and training sessions.
+				</p>
+			</div>
+			<div class="date">
+				2020
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2020
+			</div>
+			<div class="content">
+				<h3>Sourcegraph: Monitoring Architecture</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/82078081-65c62780-9695-11ea-954a-84e8e9686970.png">
+					Led the Distribution team during a management intermission, while co-authoring Sourcegraph's entire <a href="https://about.sourcegraph.com/handbook/engineering/observability/monitoring_architecture">monitoring architecture</a> from the ground up, including a Go pipeline to generate out-of-the-box uniform Grafana dashboards & Prometheus service alerts that any site admin with no knowledge of Sourcegraph could reason about.
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>Sourcegraph: Eliminated the "management console"</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117989362-1985e580-b2f1-11eb-9e79-aba8abee4fe9.png">
+					<a href="https://github.com/sourcegraph/sourcegraph/pull/7197">Eliminated</a> the highly-problematic part of setting up Sourcegraph called the "management console", which was a plague-like issue often locking site admins out of their own instance and presenting a significant deal-blocking barrier for customer onboarding and ARR growth at the time.
+				</p>
+			</div>
+			<div class="date">
+				2019
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2018
+			</div>
+			<div class="content">
+				<h3>Sourcegraph: Distribution team</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/92966535-955f2380-f42c-11ea-8723-2aa60c55b2db.png">
+					I played a founding role in the <a href="https://about.sourcegraph.com/handbook/engineering/distribution">Distribution team at Sourcegraph</a>, responsible for making Sourcegraph easy to deploy, scale, monitor, and debug.
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>Sourcegraph: Senior Engineer & Technical Account Manager</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117979360-ab88f080-b2e7-11eb-8552-fd6f09f9821d.png">
+					Working in tandem with Sourcegraph's CTO, <a href="https://twitter.com/beyang/">Beyang Liu</a>, I acted as one of the few engineers solely responsible for some of <a href="https://about.sourcegraph.com/customers">Sourcegraph's largest customers</a>, ensuring their success as a dedicated highly skilled engineer - leading to substantial fiscal wins.
+				</p>
+			</div>
+			<div class="date">
+				2018
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2018
+			</div>
+			<div class="content">
+				<h3>Sourcegraph: <code style="text-transform: none;">src</code> CLI</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/43567326-3db5f31c-95e6-11e8-9e74-4c04079c01b0.png">
+					Created the <a href="https://github.com/sourcegraph/src-cli">Sourcegraph CLI</a>, making it easy to perform GraphQL API requests with auth easily & get JSON back fast, get search results in your terminal, etc. It became a core part of Sourcegraph. 
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>
+					Vecty: your frontend, in Go
+					<a href="https://github.com/hexops/vecty"><img style="position:relative; top:3px;" src="https://img.shields.io/github/stars/hexops/vecty?style=social"></a>
+				</h3>
+				<p>
+					<img src="https://raw.githubusercontent.com/vecty/vecty-logo/2b51e5b3e0e4eab1bd00ba050ab4ac24831c765f/vertical_color.svg">
+					<a href="https://github.com/hexops/vecty">Vecty</a> lets you build responsive and dynamic web frontends in Go using WebAssembly, competing with modern web frameworks like React & VueJS.
+				</p>
+			</div>
+			<div class="date">
+				2017
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2017
+			</div>
+			<div class="content">
+				<h3>Sourcegraph: editor extensions</h3>
+				<p>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/128px-Visual_Studio_Code_1.35_icon.svg.png">
+					Developed minimal Sourcegraph editor extensions for <a href="https://github.com/sourcegraph/sourcegraph-vscode">VS Code</a>, <a href="https://github.com/sourcegraph/sourcegraph-jetbrains">Jetbrains</a>, <a href="https://github.com/sourcegraph/sourcegraph-atom">Atom</a>, and <a href="https://github.com/sourcegraph/sourcegraph-sublime">Sublime</a> editors in a one-week hack project, totalling ~30k user installations to date.
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>Sourcegraph: Appdash, an application tracing system for Go</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/117973053-c1df7e00-b2e0-11eb-85ac-e08983183a29.png">
+					At Sourcegraph, I developed <a href="https://github.com/sourcegraph/appdash">Appdash</a> - an application tracing system for Go, based on <a href="http://research.google.com/pubs/pub36356.html">Google's Dapper</a> and <a href="https://zipkin.io">Twitter's Zipkin</a>.
+				</p>
+			</div>
+			<div class="date">
+				2015
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2015
+			</div>
+			<div class="content">
+				<h3>Joined Sourcegraph</h3>
+				<p>
+					<img src="https://avatars.githubusercontent.com/u/3979584?s=200&v=4">
+					In 2015, I joined <a href="https://sourcegraph.com">Sourcegraph</a> to help build better developer tools and improve the lives of developers everywhere.
+				</p>
+			</div>
+		</div>
+		<div class="entry left">
+			<div class="content">
+				<h3>Azul3D: A 3D game engine written in Go!</h3>
+				<p>
+					<img src="https://user-images.githubusercontent.com/3173176/114266918-f42e5080-99ad-11eb-8cff-f9376f3bf0bb.png">
+					While attending school on the weekends, I spent 4 years working 100% full-time on <a href="https://azul3d.org">Azul3D, a game engine in Go</a> - learning an immense amount about software engineering, game engines, and <a href="https://github.com/nwidger/nintengo">working with others</a>.
+				</p>
+			</div>
+			<div class="date">
+				2015
+			</div>
+		</div>
+		<div class="entry right">
+			<div class="date">
+				2011
+			</div>
+			<div class="content">
+				<h3>Began using Google's Go language</h3>
+				<p>
+					<img src="https://avatars.githubusercontent.com/u/4314092?s=200&v=4">
+					In 2011 the Go <a href="https://golang.org/doc/devel/pre_go1#r59">r59 release (pre-1.0)</a> happened. I began learning Go nearly full-time, switching from Python/Cython - while attending college online on the weekends.
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+
 </html>
